@@ -1,0 +1,652 @@
+2025-09-19 23:16:59,188 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-19 23:16:59,194 - __main__ - INFO - Starting YouTube Downloader Pro...
+2025-09-19 23:16:59,194 - __main__ - INFO - Download folder: downloads
+2025-09-19 23:16:59,194 - __main__ - INFO - FFmpeg available: True
+2025-09-19 23:16:59,195 - __main__ - INFO - Aria2c available: False
+2025-09-19 23:16:59,195 - __main__ - INFO - Transcription available: False
+2025-09-19 23:16:59,208 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.106:5000
+2025-09-19 23:16:59,209 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-19 23:17:17,897 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:17] "GET / HTTP/1.1" 200 -
+2025-09-19 23:17:18,065 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:18] "GET /static/script_new.js HTTP/1.1" 200 -
+2025-09-19 23:17:18,067 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:18] "GET /static/style_new.css HTTP/1.1" 200 -
+2025-09-19 23:17:18,178 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:18] "GET /api/config HTTP/1.1" 200 -
+2025-09-19 23:17:18,650 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:18] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-19 23:17:18,703 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:18] "GET /api/statistics HTTP/1.1" 200 -
+2025-09-19 23:17:42,656 - src.services.task_manager - INFO - Created task c673745b-33d8-4dd8-8c5c-915e1b350da9 for https://youtu.be/LnvSNO-PUsg?si=OnoYWW-Oxs7aZicO (mp3, low)
+2025-09-19 23:17:42,657 - src.services.task_manager - INFO - Starting 1 queued tasks
+2025-09-19 23:17:42,657 - src.services.download_service - INFO - Starting download for task c673745b-33d8-4dd8-8c5c-915e1b350da9: https://youtu.be/LnvSNO-PUsg?si=OnoYWW-Oxs7aZicO
+2025-09-19 23:17:42,658 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:42] "POST /api/download HTTP/1.1" 200 -
+2025-09-19 23:17:42,666 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:42] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-19 23:17:42,674 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:42] "GET /api/statistics HTTP/1.1" 200 -
+2025-09-19 23:17:44,668 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:44] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:17:44,753 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:44] "GET /api/statistics HTTP/1.1" 200 -
+2025-09-19 23:17:46,664 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:46] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:17:46,669 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:46] "GET /api/statistics HTTP/1.1" 200 -
+2025-09-19 23:17:48,720 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:48] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:17:50,665 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:50] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:17:52,665 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:52] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:17:54,664 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:54] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:17:54,670 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:54] "GET /api/statistics HTTP/1.1" 200 -
+2025-09-19 23:17:54,773 - src.services.task_manager - INFO - Task c673745b-33d8-4dd8-8c5c-915e1b350da9 completed successfully
+2025-09-19 23:17:56,671 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:56] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:17:56,680 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:17:56] "GET /api/statistics HTTP/1.1" 200 -
+2025-09-19 23:18:24,930 - __main__ - INFO - Task already exists for URL: https://youtu.be/LnvSNO-PUsg?si=OnoYWW-Oxs7aZicO
+2025-09-19 23:18:24,931 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:18:24] "[31m[1mPOST /api/download HTTP/1.1[0m" 400 -
+2025-09-19 23:18:48,184 - src.services.task_manager - INFO - Created task 5133fa56-aa7a-45d8-887c-c8279dbaef74 for https://youtu.be/ojGj7Hpa-OQ?si=ruIahHd6KG4ejEp3 (mp4, best)
+2025-09-19 23:18:48,184 - src.services.task_manager - INFO - Starting 1 queued tasks
+2025-09-19 23:18:48,185 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:18:48] "POST /api/download HTTP/1.1" 200 -
+2025-09-19 23:18:48,185 - src.services.download_service - INFO - Starting download for task 5133fa56-aa7a-45d8-887c-c8279dbaef74: https://youtu.be/ojGj7Hpa-OQ?si=ruIahHd6KG4ejEp3
+2025-09-19 23:18:48,256 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:18:48] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-19 23:18:48,266 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:18:48] "GET /api/statistics HTTP/1.1" 200 -
+2025-09-19 23:18:50,266 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:18:50] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:18:50,376 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:18:50] "GET /api/statistics HTTP/1.1" 200 -
+2025-09-19 23:18:52,260 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:18:52] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:18:54,257 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:18:54] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:18:54,366 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:18:54] "GET /api/statistics HTTP/1.1" 200 -
+2025-09-19 23:18:56,194 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:18:56] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:18:58,194 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:18:58] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:19:00,194 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:19:00] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:19:00,198 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:19:00] "GET /api/statistics HTTP/1.1" 200 -
+2025-09-19 23:19:01,617 - src.services.task_manager - INFO - Task 5133fa56-aa7a-45d8-887c-c8279dbaef74 completed successfully
+2025-09-19 23:19:02,196 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:19:02] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:19:02,207 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:19:02] "GET /api/statistics HTTP/1.1" 200 -
+2025-09-19 23:19:41,929 - src.services.task_manager - INFO - Shutting down task manager
+2025-09-19 23:20:09,021 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-19 23:20:09,026 - __main__ - INFO - Starting YouTube Downloader Pro...
+2025-09-19 23:20:09,026 - __main__ - INFO - Download folder: downloads
+2025-09-19 23:20:09,026 - __main__ - INFO - FFmpeg available: True
+2025-09-19 23:20:09,026 - __main__ - INFO - Aria2c available: False
+2025-09-19 23:20:09,026 - __main__ - INFO - Transcription available: False
+2025-09-19 23:20:09,035 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.106:5000
+2025-09-19 23:20:09,035 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-19 23:22:19,126 - src.services.task_manager - INFO - Shutting down task manager
+2025-09-19 23:41:27,115 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-19 23:41:27,120 - __main__ - INFO - Starting YouTube Downloader Pro...
+2025-09-19 23:41:27,120 - __main__ - INFO - Download folder: downloads
+2025-09-19 23:41:27,120 - __main__ - INFO - FFmpeg available: True
+2025-09-19 23:41:27,120 - __main__ - INFO - Aria2c available: False
+2025-09-19 23:41:27,120 - __main__ - INFO - Transcription available: False
+2025-09-19 23:41:27,137 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.106:5000
+2025-09-19 23:41:27,138 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-19 23:41:30,573 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:41:30] "GET / HTTP/1.1" 200 -
+2025-09-19 23:41:30,813 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:41:30] "GET /static/script.js HTTP/1.1" 200 -
+2025-09-19 23:41:30,814 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:41:30] "GET /static/style.css HTTP/1.1" 200 -
+2025-09-19 23:41:30,917 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:41:30] "GET /api/config HTTP/1.1" 200 -
+2025-09-19 23:41:31,337 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:41:31] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-19 23:41:49,044 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:41:49] "[31m[1mPOST /api/download HTTP/1.1[0m" 400 -
+2025-09-19 23:43:45,965 - src.services.task_manager - INFO - Created task a10a1e3a-99ae-4657-95a4-ff361b5f2191 for https://youtu.be/ojGj7Hpa-OQ?si=ruIahHd6KG4ejEp3 (mp3, high)
+2025-09-19 23:43:45,966 - src.services.task_manager - INFO - Starting 1 queued tasks
+2025-09-19 23:43:45,966 - src.services.download_service - INFO - Starting download for task a10a1e3a-99ae-4657-95a4-ff361b5f2191: https://youtu.be/ojGj7Hpa-OQ?si=ruIahHd6KG4ejEp3
+2025-09-19 23:43:45,967 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:43:45] "POST /api/download HTTP/1.1" 200 -
+2025-09-19 23:43:45,974 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:43:45] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-19 23:43:48,009 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:43:48] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:43:49,983 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:43:49] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:43:52,003 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:43:52] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:43:53,983 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:43:53] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:43:55,983 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:43:55] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:43:57,983 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:43:57] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:43:59,983 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:43:59] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:01,983 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:01] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:03,983 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:03] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:05,984 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:05] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:07,983 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:07] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:09,999 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:09] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:11,986 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:11] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:13,985 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:13] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:15,984 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:15] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:17,984 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:17] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:19,985 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:19] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:21,986 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:21] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:23,985 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:23] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:25,984 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:25] "GET /api/progress HTTP/1.1" 200 -
+2025-09-19 23:44:26,323 - src.services.task_manager - INFO - Task a10a1e3a-99ae-4657-95a4-ff361b5f2191 completed successfully
+2025-09-19 23:44:27,987 - werkzeug - INFO - 127.0.0.1 - - [19/Sep/2025 23:44:27] "GET /api/progress HTTP/1.1" 200 -
+2025-09-20 00:11:48,440 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:11:48] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:11:48,592 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:11:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:11:48,594 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:11:48] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:11:48,708 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:11:48] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:11:49,168 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:11:49] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:15:01,953 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:15:01] "GET /?tool=transcriber HTTP/1.1" 200 -
+2025-09-20 00:15:02,030 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:15:02] "GET /static/style.css HTTP/1.1" 200 -
+2025-09-20 00:15:02,030 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:15:02] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:15:02,123 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:15:02] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:15:02,438 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:15:02] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:19:28,101 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:19:28] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:19:28,179 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:19:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:19:28,180 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:19:28] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:19:28,275 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:19:28] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:19:28,709 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:19:28] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:25,356 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:25] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:25,438 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:25,439 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:25] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:25,533 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:25] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:25,666 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:25] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:36,600 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:36] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:36,661 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:36,662 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:36] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:36,712 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:36] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:36,814 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:36] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:37,375 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:37] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:37,422 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:37,428 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:37] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:37,470 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:37] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:37,567 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:37] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:37,756 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:37] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:37,815 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:37,827 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:37] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:37,842 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:37] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:37,975 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:37] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:38,133 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:38,196 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:38,205 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:38,266 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:38,355 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:38,628 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:38,693 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:38,703 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:38,739 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:38,836 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:38,884 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:38,969 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:38,979 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:38] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:39,031 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:39] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:39,145 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:39] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:39,251 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:39] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:39,307 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:39,316 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:39] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:39,348 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:39] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:39,502 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:39] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:39,616 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:39] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:39,681 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:39,691 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:39] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:39,727 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:39] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:39,817 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:39] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:40,026 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:40,138 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:40,145 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:40,195 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:40,338 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:40,433 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:40,481 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:40,484 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:40,521 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:40,615 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:40,853 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:40,914 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:40,920 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:40,940 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:40] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:41,057 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:41,200 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:41,251 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:41,261 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:41,321 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:41,430 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:41,678 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:41,725 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:41,727 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:41,782 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:41,872 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:41,904 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:41,995 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:41,998 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:41] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:42,022 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:42] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:42,155 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:42] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:42,311 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:42] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:42,370 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:42,381 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:42] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:42,432 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:42] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:42,533 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:42] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:42,941 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:42] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:42,980 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:42,992 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:42] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:43,026 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:43,123 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:43,187 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:43,246 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:43,248 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:43,282 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:43,406 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:43,441 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:43,523 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:43,529 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:43,571 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:43,654 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:43,725 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:43,781 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:43,791 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:43,809 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:43,933 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:43] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:44,253 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:44] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:44,290 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:44,303 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:44] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:44,350 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:44] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:44,462 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:44] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:58,918 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:58] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:58,966 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:58,969 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:58] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:59,002 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:59] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:59,107 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:59] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:59,664 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:59] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:59,699 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:59,701 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:59] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:20:59,740 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:59] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:20:59,838 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:59] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:20:59,883 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:59] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:20:59,955 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:20:59,964 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:20:59] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:21:00,001 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:21:00,105 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:21:00,225 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:21:00,279 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:21:00,287 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:21:00,325 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:21:00,438 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:21:00,551 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:21:00,609 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:21:00,620 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:21:00,645 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:21:00,765 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:21:00,918 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:21:00,978 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:21:00,981 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:00] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:21:01,006 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:01] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:21:01,125 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:01] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:21:01,260 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:01] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:21:01,315 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:21:01,323 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:01] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:21:01,340 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:01] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:21:01,496 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:01] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:21:15,419 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:15] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:21:15,462 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:21:15,475 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:15] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:21:15,514 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:15] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:21:15,603 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:15] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:21:16,153 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:16] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:21:16,197 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:21:16,204 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:16] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:21:16,233 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:16] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:21:16,331 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:16] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:21:16,711 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:16] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:21:16,765 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:21:16,768 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:16] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:21:16,811 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:16] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:21:16,920 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:16] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:21:17,136 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:21:17,199 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:21:17,200 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:21:17,225 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:21:17,334 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:21:17,563 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:21:17,625 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:21:17,635 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:21:17,677 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:21:17,774 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:21:17,850 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:21:17,944 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-09-20 00:21:17,963 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-09-20 00:21:17,988 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:17] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:21:18,114 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:21:18] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:22:04,157 - src.services.task_manager - INFO - Shutting down task manager
+2025-09-20 00:22:06,962 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:22:06,967 - __main__ - INFO - Starting YouTube Downloader Pro...
+2025-09-20 00:22:06,967 - __main__ - INFO - Download folder: downloads
+2025-09-20 00:22:06,967 - __main__ - INFO - FFmpeg available: True
+2025-09-20 00:22:06,967 - __main__ - INFO - Aria2c available: False
+2025-09-20 00:22:06,967 - __main__ - INFO - Transcription available: False
+2025-09-20 00:22:06,984 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.106:5000
+2025-09-20 00:22:06,984 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-20 00:22:09,072 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:22:09] "GET / HTTP/1.1" 200 -
+2025-09-20 00:22:09,459 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:22:09] "GET /static/style_youtube.css HTTP/1.1" 200 -
+2025-09-20 00:22:09,466 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:22:09] "GET /static/cursor-fluid.js HTTP/1.1" 200 -
+2025-09-20 00:22:09,470 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:22:09] "GET /static/script_enhanced.js HTTP/1.1" 200 -
+2025-09-20 00:22:09,591 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:22:09] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:22:09,986 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:22:09] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:23:52,027 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:52] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:23:52,078 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:52] "GET /static/style_youtube.css HTTP/1.1" 200 -
+2025-09-20 00:23:52,079 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:52] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:23:52,079 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:52] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:23:52,127 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:52] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:23:52,362 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:52] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:23:52,750 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:52] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:23:52,805 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:52] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:23:52,806 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:52] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:23:52,806 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:52] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:23:52,854 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:52] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:23:52,952 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:52] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:23:53,077 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:53] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:23:53,116 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:53] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:23:53,118 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:53] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:23:53,122 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:53] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:23:53,160 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:53] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:23:53,230 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:23:53] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:24:03,735 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:03] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:24:03,770 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:03] "GET /static/style_youtube.css HTTP/1.1" 200 -
+2025-09-20 00:24:03,779 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:03] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:03,786 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:03] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:03,816 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:03] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:24:03,891 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:03] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:24:03,973 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:03] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:24:04,006 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:04] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:24:04,017 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:04] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:04,021 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:04] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:04,059 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:04] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:24:04,127 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:04] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:24:04,796 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:04] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:24:04,839 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:04] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:24:04,846 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:04] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:04,850 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:04] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:04,873 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:04] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:24:04,940 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:04] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:24:05,333 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:24:05,380 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:24:05,386 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:05,391 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:05,419 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:24:05,496 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:24:05,548 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:24:05,604 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:24:05,611 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:05,614 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:05,644 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:24:05,730 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:24:05,924 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:24:05,957 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:24:05,961 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:05,964 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:05,997 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:05] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:24:06,075 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:06] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:24:08,576 - src.services.task_manager - INFO - Shutting down task manager
+2025-09-20 00:24:16,945 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:24:16,949 - __main__ - INFO - Starting YouTube Downloader Pro...
+2025-09-20 00:24:16,950 - __main__ - INFO - Download folder: downloads
+2025-09-20 00:24:16,950 - __main__ - INFO - FFmpeg available: True
+2025-09-20 00:24:16,950 - __main__ - INFO - Aria2c available: False
+2025-09-20 00:24:16,950 - __main__ - INFO - Transcription available: False
+2025-09-20 00:24:16,961 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.106:5000
+2025-09-20 00:24:16,961 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-20 00:24:19,934 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:19] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:24:20,033 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:24:20,047 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:20,062 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:20,073 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:24:20,146 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:24:20,708 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:24:20,747 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:24:20,752 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:20,757 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:20,780 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:24:20,859 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:24:20,895 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:24:20,960 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:24:20,974 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:20,978 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:20] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:24:21,001 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:21] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:24:21,127 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:24:21] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:24:26,117 - src.services.task_manager - INFO - Shutting down task manager
+2025-09-20 00:25:11,628 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:25:11,633 - __main__ - INFO - Starting YouTube Downloader Pro...
+2025-09-20 00:25:11,633 - __main__ - INFO - Download folder: downloads
+2025-09-20 00:25:11,633 - __main__ - INFO - FFmpeg available: True
+2025-09-20 00:25:11,634 - __main__ - INFO - Aria2c available: False
+2025-09-20 00:25:11,634 - __main__ - INFO - Transcription available: False
+2025-09-20 00:25:11,645 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.106:5000
+2025-09-20 00:25:11,645 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-20 00:25:15,714 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:25:15] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:25:15,756 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:25:15] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:25:15,869 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:25:15] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:25:15,887 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:25:15] "GET /static/cursor-fluid.js HTTP/1.1" 200 -
+2025-09-20 00:25:15,912 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:25:15] "GET /static/script_enhanced.js HTTP/1.1" 200 -
+2025-09-20 00:25:15,974 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:25:15] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:25:16,349 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:25:16] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:25:50,311 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:25:50] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:26:45,799 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:26:45] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:26:45,858 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:26:45] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:26:45,894 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:26:45] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:26:45,894 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:26:45] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:26:45,895 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:26:45] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:26:46,003 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:26:46] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:26:46,372 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:26:46] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:27:24,886 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:24] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:27:25,019 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:25] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:27:25,022 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:25] "GET /static/cursor-fluid.js HTTP/1.1" 200 -
+2025-09-20 00:27:25,022 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:25] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:27:25,043 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:25] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:27:25,535 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:25] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:27:29,538 - src.services.task_manager - INFO - Shutting down task manager
+2025-09-20 00:27:31,609 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:27:31,615 - __main__ - INFO - Starting YouTube Downloader Pro...
+2025-09-20 00:27:31,615 - __main__ - INFO - Download folder: downloads
+2025-09-20 00:27:31,615 - __main__ - INFO - FFmpeg available: True
+2025-09-20 00:27:31,615 - __main__ - INFO - Aria2c available: False
+2025-09-20 00:27:31,615 - __main__ - INFO - Transcription available: False
+2025-09-20 00:27:31,625 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.106:5000
+2025-09-20 00:27:31,626 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-20 00:27:33,768 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:33] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:27:33,947 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:33] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:27:33,949 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:33] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:27:33,954 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:33] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:27:33,985 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:33] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:27:34,107 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:34] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:27:37,239 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:37] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:27:37,308 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:27:37] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:28:05,836 - src.services.task_manager - INFO - Shutting down task manager
+2025-09-20 00:28:09,543 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:28:09,548 - __main__ - INFO - Starting YouTube Downloader Pro...
+2025-09-20 00:28:09,549 - __main__ - INFO - Download folder: downloads
+2025-09-20 00:28:09,549 - __main__ - INFO - FFmpeg available: True
+2025-09-20 00:28:09,549 - __main__ - INFO - Aria2c available: False
+2025-09-20 00:28:09,549 - __main__ - INFO - Transcription available: False
+2025-09-20 00:28:09,559 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.106:5000
+2025-09-20 00:28:09,559 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-20 00:28:11,078 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:28:11] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:28:11,135 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:28:11] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:28:11,261 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:28:11] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:28:11,289 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:28:11] "GET /static/cursor-fluid-simple.js HTTP/1.1" 200 -
+2025-09-20 00:28:11,295 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:28:11] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:28:11,424 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:28:11] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:28:11,865 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:28:11] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:28:39,641 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:28:39] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:28:39,679 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:28:39] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:30:17,458 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:30:17,463 - __main__ - INFO - Starting YouTube Downloader Pro...
+2025-09-20 00:30:17,464 - __main__ - INFO - Download folder: downloads
+2025-09-20 00:30:17,464 - __main__ - INFO - FFmpeg available: True
+2025-09-20 00:30:17,464 - __main__ - INFO - Aria2c available: False
+2025-09-20 00:30:17,464 - __main__ - INFO - Transcription available: False
+2025-09-20 00:30:17,508 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.106:5000
+2025-09-20 00:30:17,508 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-20 00:30:17,538 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-20 00:30:18,362 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:30:18,367 - __main__ - INFO - Starting YouTube Downloader Pro...
+2025-09-20 00:30:18,367 - __main__ - INFO - Download folder: downloads
+2025-09-20 00:30:18,368 - __main__ - INFO - FFmpeg available: True
+2025-09-20 00:30:18,368 - __main__ - INFO - Aria2c available: False
+2025-09-20 00:30:18,368 - __main__ - INFO - Transcription available: False
+2025-09-20 00:30:18,378 - werkzeug - WARNING -  * Debugger is active!
+2025-09-20 00:30:18,382 - werkzeug - INFO -  * Debugger PIN: 574-144-091
+2025-09-20 00:30:23,229 - src.services.task_manager - INFO - Shutting down task manager
+2025-09-20 00:30:23,326 - src.services.task_manager - INFO - Shutting down task manager
+2025-09-20 00:31:24,843 - src.services.task_manager - INFO - Shutting down task manager
+2025-09-20 00:31:31,756 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:31:31,789 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-20 00:31:31,789 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-20 00:31:31,807 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-20 00:31:32,739 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:31:32,762 - werkzeug - WARNING -  * Debugger is active!
+2025-09-20 00:31:32,766 - werkzeug - INFO -  * Debugger PIN: 574-144-091
+2025-09-20 00:31:34,363 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:31:34] "GET / HTTP/1.1" 200 -
+2025-09-20 00:31:34,713 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:31:34] "[36mGET /static/cursor-fluid-simple.js HTTP/1.1[0m" 304 -
+2025-09-20 00:31:34,715 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:31:34] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:31:34,715 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:31:34] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:31:34,795 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:31:34] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:31:35,233 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:31:35] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:31:39,266 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:31:39] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:31:39,277 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:31:39] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:33:09,112 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:33:09,133 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-20 00:33:09,133 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-20 00:33:09,142 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-20 00:33:09,877 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:33:09,892 - werkzeug - WARNING -  * Debugger is active!
+2025-09-20 00:33:09,895 - werkzeug - INFO -  * Debugger PIN: 574-144-091
+2025-09-20 00:33:13,728 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:13] "GET / HTTP/1.1" 200 -
+2025-09-20 00:33:13,799 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:13] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:33:13,888 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:13] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:33:13,888 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:13] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:33:13,888 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:13] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:33:14,051 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:14] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:33:14,520 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:14] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:33:24,267 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:24] "GET / HTTP/1.1" 200 -
+2025-09-20 00:33:24,317 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:24] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:33:24,349 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:24] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:33:24,349 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:24] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:33:24,366 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:24] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:33:24,443 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:24] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:33:24,939 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:24] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:33:31,345 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:33:31,374 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-20 00:33:31,374 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-20 00:33:31,388 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-20 00:33:32,248 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:33:32,266 - werkzeug - WARNING -  * Debugger is active!
+2025-09-20 00:33:32,270 - werkzeug - INFO -  * Debugger PIN: 574-144-091
+2025-09-20 00:33:33,441 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:33] "GET / HTTP/1.1" 200 -
+2025-09-20 00:33:33,487 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:33] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:33:33,562 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:33] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:33:33,586 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:33] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:33:33,599 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:33] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:33:33,644 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:33] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:33:34,056 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:34] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:33:59,541 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:59] "GET / HTTP/1.1" 200 -
+2025-09-20 00:33:59,584 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:59] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:33:59,632 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:59] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:33:59,633 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:59] "GET /static/cursor-fluid.js HTTP/1.1" 200 -
+2025-09-20 00:33:59,633 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:59] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:33:59,722 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:33:59] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:34:00,176 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:34:00] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:34:07,886 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:34:07,917 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-20 00:34:07,917 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-20 00:34:07,930 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-20 00:34:08,762 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:34:08,783 - werkzeug - WARNING -  * Debugger is active!
+2025-09-20 00:34:08,787 - werkzeug - INFO -  * Debugger PIN: 574-144-091
+2025-09-20 00:34:10,104 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:34:10] "GET / HTTP/1.1" 200 -
+2025-09-20 00:34:10,154 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:34:10] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:34:10,248 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:34:10] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:34:10,278 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:34:10] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:34:10,279 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:34:10] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:34:10,327 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:34:10] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:34:10,747 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:34:10] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:36:51,002 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:36:51] "GET / HTTP/1.1" 200 -
+2025-09-20 00:36:51,165 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:36:51] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:36:51,172 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:36:51] "GET /static/cursor-fluid.js HTTP/1.1" 200 -
+2025-09-20 00:36:51,178 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:36:51] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:36:51,212 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:36:51] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:36:51,226 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:36:51] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:36:51,866 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:36:51] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:37:06,450 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:06] "GET / HTTP/1.1" 200 -
+2025-09-20 00:37:06,523 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:06] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:37:06,535 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:06] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:37:06,535 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:06] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:37:06,535 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:06] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:37:06,619 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:06] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:37:06,971 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:06] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:37:08,628 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:08] "GET / HTTP/1.1" 200 -
+2025-09-20 00:37:08,694 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:08] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:37:08,696 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:08] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:37:08,707 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:08] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:37:08,710 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:08] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:37:08,780 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:08] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:37:09,170 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:37:09] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:41:32,809 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:32] "GET / HTTP/1.1" 200 -
+2025-09-20 00:41:32,880 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:32] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:41:32,950 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:32] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:41:32,950 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:32] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:41:32,951 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:32] "GET /static/cursor-fluid.js HTTP/1.1" 200 -
+2025-09-20 00:41:33,222 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:33] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:41:33,676 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:33] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:41:48,731 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:41:48,752 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-20 00:41:48,752 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-20 00:41:48,762 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-20 00:41:49,475 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 00:41:49,493 - werkzeug - WARNING -  * Debugger is active!
+2025-09-20 00:41:49,498 - werkzeug - INFO -  * Debugger PIN: 574-144-091
+2025-09-20 00:41:50,889 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:50] "GET / HTTP/1.1" 200 -
+2025-09-20 00:41:50,940 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:50] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:41:51,090 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:51] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:41:51,094 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:51] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:41:51,096 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:51] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:41:51,321 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:51] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:41:51,806 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:41:51] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:46:56,725 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:46:56] "GET / HTTP/1.1" 200 -
+2025-09-20 00:46:56,838 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:46:56] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:46:56,864 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:46:56] "GET /static/cursor-fluid.js HTTP/1.1" 200 -
+2025-09-20 00:46:56,885 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:46:56] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:46:57,066 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:46:57] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 00:46:57,118 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:46:57] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:46:57,651 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:46:57] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:49:20,265 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:49:20] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:49:20,388 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:49:20] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:49:20,397 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:49:20] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:49:20,398 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:49:20] "[36mGET /static/cursor-fluid.js HTTP/1.1[0m" 304 -
+2025-09-20 00:49:20,626 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:49:20] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:49:21,025 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:49:21] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 00:56:26,361 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:56:26] "GET /?tool=downloader HTTP/1.1" 200 -
+2025-09-20 00:56:26,523 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:56:26] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 00:56:26,524 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:56:26] "GET /static/cursor-fluid.js HTTP/1.1" 200 -
+2025-09-20 00:56:26,527 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:56:26] "[36mGET /static/script_enhanced.js HTTP/1.1[0m" 304 -
+2025-09-20 00:56:26,781 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:56:26] "GET /api/config HTTP/1.1" 200 -
+2025-09-20 00:56:27,250 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 00:56:27] "GET /api/tasks HTTP/1.1" 200 -
+2025-09-20 01:05:13,633 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 01:05:13] "[36mGET /static/style_youtube.css HTTP/1.1[0m" 304 -
+2025-09-20 01:05:13,680 - werkzeug - INFO - 127.0.0.1 - - [20/Sep/2025 01:05:13] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-20 01:37:52,882 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\app.py', reloading
+2025-09-20 01:37:52,897 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\run_dev.py', reloading
+2025-09-20 01:37:52,898 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\src\\config.py', reloading
+2025-09-20 01:37:52,898 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\src\\models\\__init__.py', reloading
+2025-09-20 01:37:52,898 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\src\\models\\download_task.py', reloading
+2025-09-20 01:37:52,899 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\src\\services\\__init__.py', reloading
+2025-09-20 01:37:52,899 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\src\\services\\download_service.py', reloading
+2025-09-20 01:37:52,900 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\src\\services\\task_manager.py', reloading
+2025-09-20 01:37:52,900 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\src\\services\\transcription_service.py', reloading
+2025-09-20 01:37:52,900 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\src\\utils\\__init__.py', reloading
+2025-09-20 01:37:52,901 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\src\\utils\\logger.py', reloading
+2025-09-20 01:37:52,901 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\src\\utils\\url_validator.py', reloading
+2025-09-20 01:37:52,901 - werkzeug - INFO -  * Detected change in 'G:\\Projects\\Yt_Audio_Downlaoder\\Yt_MP3_Downloader-\\start.py', reloading
+2025-09-20 01:37:53,836 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-09-20 01:37:54,835 - src.services.transcription_service - ERROR - Whisper not available. Install with: pip install openai-whisper
+2025-09-20 01:37:54,863 - werkzeug - WARNING -  * Debugger is active!
+2025-09-20 01:37:54,866 - werkzeug - INFO -  * Debugger PIN: 574-144-091

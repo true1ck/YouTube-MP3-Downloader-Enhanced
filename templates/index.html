@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YouTube Tools Pro - Modular Media Processor</title>
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='style_youtube.css') }}" />
+  
+  <!-- Inline critical styles to ensure theme loads -->
+  <style>
+    /* Critical YouTube theme overrides */
+    body {
+      background: #FFFFFF !important;
+      color: #0F0F0F !important;
+      font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif !important;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%) !important;
+      border-color: #FF0000 !important;
+      color: white !important;
+    }
+    
+    .btn-outline-primary {
+      color: #FF0000 !important;
+      border-color: #FF0000 !important;
+    }
+    
+    .bg-primary {
+      background-color: #FF0000 !important;
+    }
+    
+    .tool-card.active {
+      border-color: #FF0000 !important;
+      background: #FFE6E6 !important;
+    }
+    
+    .brand-logo {
+      background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%) !important;
+    }
+    
+    .tool-icon {
+      background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%) !important;
+    }
+    
+    .card {
+      background: #FFFFFF !important;
+      border: 1px solid #E0E0E0 !important;
+      border-radius: 12px !important;
+    }
+    
+    .card-header {
+      background: #F9F9F9 !important;
+      border-bottom: 1px solid #E0E0E0 !important;
+    }
+    
+    /* Ensure cursor animation canvas is positioned correctly */
+    #fluid-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    
+    /* Fallback animated background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 68, 68, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(255, 0, 0, 0.05) 0%, transparent 50%);
+      animation: floatingBg 20s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes floatingBg {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-20px) scale(1.05); }
+    }
+    
+    /* Add subtle glow effects on hover */
+    .tool-card:hover {
+      box-shadow: 0 8px 25px rgba(255, 0, 0, 0.15) !important;
+    }
+    
+    .btn-primary:hover {
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3) !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cursor Fluid Animation Canvas -->
+  <canvas id="fluid-canvas"></canvas>
+  
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="brand">
+            <div class="brand-logo">
+              <i class="bi bi-tools"></i>
+            </div>
+            <div>
+              <h1 class="mb-0">YouTube Tools Pro</h1>
+              <p class="mb-0 text-muted">Modular media processing suite</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-center gap-2">
+            <div class="stats-badge d-none d-md-flex">
+              <i class="bi bi-activity me-1"></i>
+              <span id="globalStats">Ready</span>
+            </div>
+            <button class="btn btn-outline-primary btn-sm d-none d-md-block" data-bs-toggle="modal" data-bs-target="#settingsModal">
+              <i class="bi bi-gear me-1"></i>Settings
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <div class="container-fluid">
+        <!-- Tool Selector -->
+        <div class="tool-selector mb-4">
+          <div class="row g-3">
+            <div class="col-6 col-md-3">
+              <div class="tool-card active" data-tool="downloader">
+                <div class="tool-icon">
+                  <i class="bi bi-download"></i>
+                </div>
+                <h5>Downloader</h5>
+                <p>Download MP3/MP4 files</p>
+              </div>
+            </div>
+            
+            <div class="col-6 col-md-3">
+              <div class="tool-card" data-tool="transcriber">
+                <div class="tool-icon">
+                  <i class="bi bi-mic"></i>
+                </div>
+                <h5>Transcriber</h5>
+                <p>AI-powered transcription</p>
+              </div>
+            </div>
+            
+            <div class="col-6 col-md-3">
+              <div class="tool-card" data-tool="converter">
+                <div class="tool-icon">
+                  <i class="bi bi-arrow-left-right"></i>
+                </div>
+                <h5>Converter</h5>
+                <p>Format conversion</p>
+              </div>
+            </div>
+            
+            <div class="col-6 col-md-3">
+              <div class="tool-card" data-tool="batch">
+                <div class="tool-icon">
+                  <i class="bi bi-stack"></i>
+                </div>
+                <h5>Batch Tools</h5>
+                <p>Bulk operations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool Sections -->
+        <div class="tool-sections">
+          <!-- Downloader Section -->
+          <div class="tool-section active" id="downloader-section">
+            <div class="section-header">
+              <h3><i class="bi bi-download me-2"></i>Media Downloader</h3>
+              <p>Download YouTube videos as MP3 audio or MP4 video files</p>
+            </div>
+            
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="card tool-panel">
+                  <div class="card-header">
+                    <h5><i class="bi bi-clipboard2-plus me-2"></i>Download Configuration</h5>
+                  </div>
+                  <div class="card-body">
+                    <form id="downloadForm">
+                      <div class="mb-3">
+                        <label for="downloadUrls" class="form-label">YouTube URLs</label>
+                        <textarea id="downloadUrls" class="form-control" rows="3" 
+                                placeholder="Paste YouTube URLs here (one per line or comma-separated)"></textarea>
+                        <div class="form-text">Supports regular videos, shorts, and playlists</div>
+                      </div>
+                      
+                      <div class="row g-3">
+                        <div class="col-md-4">
+                          <label for="downloadFormat" class="form-label">Format</label>
+                          <select id="downloadFormat" class="form-select">
+                            <option value="mp3">MP3 Audio</option>
+                            <option value="mp4">MP4 Video</option>
+                          </select>
+                        </div>
+                        
+                        <div class="col-md-4">
+                          <label for="downloadQuality" class="form-label">Quality</label>
+                          <select id="downloadQuality" class="form-select">
+                            <!-- Options populated by JS -->
+                          </select>
+                        </div>
+                        
+                        <div class="col-md-4">
+                          <label class="form-label">Options</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="downloadTranscription">
+                            <label class="form-check-label" for="downloadTranscription">
+                              Add transcription
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="mt-3">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                          <i class="bi bi-download me-1"></i>Start Download
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary ms-2" id="clearDownloadQueue">
+                          <i class="bi bi-trash me-1"></i>Clear Queue
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-lg-4">
+                <div class="card quick-stats">
+                  <div class="card-header">
+                    <h6><i class="bi bi-bar-chart me-1"></i>Download Stats</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="stat-item">
+                      <span class="stat-label">Active Downloads</span>
+                      <span class="stat-value" id="activeDownloads">0</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-label">Completed</span>
+                      <span class="stat-value" id="completedDownloads">0</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-label">Failed</span>
+                      <span class="stat-value" id="failedDownloads">0</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transcriber Section -->
+          <div class="tool-section" id="transcriber-section">
+            <div class="section-header">
+              <h3><i class="bi bi-mic me-2"></i>AI Transcriber</h3>
+              <p>Generate accurate transcriptions using AI technology</p>
+            </div>
+            
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="card tool-panel">
+                  <div class="card-header">
+                    <h5><i class="bi bi-file-earmark-text me-2"></i>Transcription Settings</h5>
+                  </div>
+                  <div class="card-body">
+                    <form id="transcriptionForm">
+                      <div class="mb-3">
+                        <label class="form-label">Input Source</label>
+                        <div class="btn-group w-100" role="group">
+                          <input type="radio" class="btn-check" name="transcriptionSource" id="transcriptionUrl" value="url" checked>
+                          <label class="btn btn-outline-primary" for="transcriptionUrl">
+                            <i class="bi bi-link me-1"></i>YouTube URL
+                          </label>
+                          
+                          <input type="radio" class="btn-check" name="transcriptionSource" id="transcriptionFile" value="file">
+                          <label class="btn btn-outline-primary" for="transcriptionFile">
+                            <i class="bi bi-file-earmark me-1"></i>Upload File
+                          </label>
+                        </div>
+                      </div>
+                      
+                      <div class="mb-3" id="urlInput">
+                        <label for="transcriptionUrls" class="form-label">YouTube URLs</label>
+                        <textarea id="transcriptionUrls" class="form-control" rows="2" 
+                                placeholder="Paste YouTube URLs for transcription"></textarea>
+                      </div>
+                      
+                      <div class="mb-3 d-none" id="fileInput">
+                        <label for="transcriptionFiles" class="form-label">Audio/Video Files</label>
+                        <input type="file" class="form-control" id="transcriptionFiles" multiple 
+                               accept="audio/*,video/*">
+                      </div>
+                      
+                      <div class="row g-3">
+                        <div class="col-md-4">
+                          <label for="transcriptionModel" class="form-label">AI Model</label>
+                          <select id="transcriptionModel" class="form-select">
+                            <option value="base">Base (Fast)</option>
+                            <option value="small">Small (Balanced)</option>
+                            <option value="medium">Medium (Accurate)</option>
+                            <option value="large">Large (Best)</option>
+                          </select>
+                        </div>
+                        
+                        <div class="col-md-4">
+                          <label for="transcriptionLanguage" class="form-label">Language</label>
+                          <select id="transcriptionLanguage" class="form-select">
+                            <option value="auto">Auto-detect</option>
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                          </select>
+                        </div>
+                        
+                        <div class="col-md-4">
+                          <label for="transcriptionFormat" class="form-label">Output Format</label>
+                          <select id="transcriptionFormat" class="form-select">
+                            <option value="txt">Plain Text</option>
+                            <option value="srt">SRT Subtitles</option>
+                            <option value="vtt">WebVTT</option>
+                            <option value="json">JSON</option>
+                          </select>
+                        </div>
+                      </div>
+                      
+                      <div class="mt-3">
+                        <button type="submit" class="btn btn-success btn-lg">
+                          <i class="bi bi-mic me-1"></i>Start Transcription
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-lg-4">
+                <div class="card">
+                  <div class="card-header">
+                    <h6><i class="bi bi-info-circle me-1"></i>Model Information</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="model-info">
+                      <div class="model-option" data-model="base">
+                        <strong>Base Model</strong>
+                        <div class="small text-muted">74MB • Fast • Good accuracy</div>
+                      </div>
+                      <div class="model-option" data-model="small">
+                        <strong>Small Model</strong>
+                        <div class="small text-muted">244MB • Balanced • Better accuracy</div>
+                      </div>
+                      <div class="model-option" data-model="medium">
+                        <strong>Medium Model</strong>
+                        <div class="small text-muted">769MB • Slow • High accuracy</div>
+                      </div>
+                      <div class="model-option" data-model="large">
+                        <strong>Large Model</strong>
+                        <div class="small text-muted">1.55GB • Slowest • Best accuracy</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Converter Section -->
+          <div class="tool-section" id="converter-section">
+            <div class="section-header">
+              <h3><i class="bi bi-arrow-left-right me-2"></i>Format Converter</h3>
+              <p>Convert between different audio and video formats</p>
+            </div>
+            
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="card tool-panel">
+                  <div class="card-header">
+                    <h5><i class="bi bi-arrows-angle-expand me-2"></i>Conversion Settings</h5>
+                  </div>
+                  <div class="card-body">
+                    <form id="conversionForm">
+                      <div class="mb-3">
+                        <label for="conversionFiles" class="form-label">Select Files</label>
+                        <input type="file" class="form-control" id="conversionFiles" multiple>
+                        <div class="form-text">Supports audio and video files</div>
+                      </div>
+                      
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label for="convertFromFormat" class="form-label">From Format</label>
+                          <select id="convertFromFormat" class="form-select">
+                            <option value="auto">Auto-detect</option>
+                            <option value="mp4">MP4</option>
+                            <option value="mp3">MP3</option>
+                            <option value="wav">WAV</option>
+                            <option value="flac">FLAC</option>
+                            <option value="aac">AAC</option>
+                          </select>
+                        </div>
+                        
+                        <div class="col-md-6">
+                          <label for="convertToFormat" class="form-label">To Format</label>
+                          <select id="convertToFormat" class="form-select">
+                            <option value="mp3">MP3</option>
+                            <option value="mp4">MP4</option>
+                            <option value="wav">WAV</option>
+                            <option value="flac">FLAC</option>
+                            <option value="aac">AAC</option>
+                            <option value="ogg">OGG</option>
+                          </select>
+                        </div>
+                      </div>
+                      
+                      <div class="row g-3 mt-2">
+                        <div class="col-md-4">
+                          <label for="conversionQuality" class="form-label">Quality</label>
+                          <select id="conversionQuality" class="form-select">
+                            <option value="high">High</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="low">Low</option>
+                          </select>
+                        </div>
+                        
+                        <div class="col-md-4">
+                          <label for="conversionBitrate" class="form-label">Bitrate</label>
+                          <select id="conversionBitrate" class="form-select">
+                            <option value="320">320 kbps</option>
+                            <option value="256">256 kbps</option>
+                            <option value="192" selected>192 kbps</option>
+                            <option value="128">128 kbps</option>
+                          </select>
+                        </div>
+                        
+                        <div class="col-md-4">
+                          <label class="form-label">Options</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="preserveMetadata" checked>
+                            <label class="form-check-label" for="preserveMetadata">
+                              Preserve metadata
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="mt-3">
+                        <button type="submit" class="btn btn-warning btn-lg">
+                          <i class="bi bi-arrow-left-right me-1"></i>Start Conversion
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-lg-4">
+                <div class="card">
+                  <div class="card-header">
+                    <h6><i class="bi bi-list-check me-1"></i>Supported Formats</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="format-list">
+                      <div class="format-category">
+                        <strong>Audio Formats</strong>
+                        <div class="format-items">
+                          <span class="badge bg-primary">MP3</span>
+                          <span class="badge bg-primary">WAV</span>
+                          <span class="badge bg-primary">FLAC</span>
+                          <span class="badge bg-primary">AAC</span>
+                          <span class="badge bg-primary">OGG</span>
+                        </div>
+                      </div>
+                      <div class="format-category mt-2">
+                        <strong>Video Formats</strong>
+                        <div class="format-items">
+                          <span class="badge bg-secondary">MP4</span>
+                          <span class="badge bg-secondary">AVI</span>
+                          <span class="badge bg-secondary">MOV</span>
+                          <span class="badge bg-secondary">MKV</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Batch Tools Section -->
+          <div class="tool-section" id="batch-section">
+            <div class="section-header">
+              <h3><i class="bi bi-stack me-2"></i>Batch Operations</h3>
+              <p>Perform bulk operations on multiple files or URLs</p>
+            </div>
+            
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card tool-panel">
+                  <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5><i class="bi bi-layers me-2"></i>Batch Configuration</h5>
+                      <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="batchMode" id="batchDownload" value="download" checked>
+                        <label class="btn btn-outline-primary btn-sm" for="batchDownload">Download</label>
+                        
+                        <input type="radio" class="btn-check" name="batchMode" id="batchTranscribe" value="transcribe">
+                        <label class="btn btn-outline-success btn-sm" for="batchTranscribe">Transcribe</label>
+                        
+                        <input type="radio" class="btn-check" name="batchMode" id="batchConvert" value="convert">
+                        <label class="btn btn-outline-warning btn-sm" for="batchConvert">Convert</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-8">
+                        <div class="mb-3">
+                          <label class="form-label">Batch Input</label>
+                          <div class="input-method-selector">
+                            <div class="btn-group w-100 mb-2" role="group">
+                              <input type="radio" class="btn-check" name="batchInput" id="batchInputText" value="text" checked>
+                              <label class="btn btn-outline-secondary" for="batchInputText">
+                                <i class="bi bi-textarea-t me-1"></i>Text Input
+                              </label>
+                              
+                              <input type="radio" class="btn-check" name="batchInput" id="batchInputFile" value="file">
+                              <label class="btn btn-outline-secondary" for="batchInputFile">
+                                <i class="bi bi-file-earmark me-1"></i>File Upload
+                              </label>
+                              
+                              <input type="radio" class="btn-check" name="batchInput" id="batchInputPlaylist" value="playlist">
+                              <label class="btn btn-outline-secondary" for="batchInputPlaylist">
+                                <i class="bi bi-collection-play me-1"></i>Playlist
+                              </label>
+                            </div>
+                            
+                            <div id="batchTextInput">
+                              <textarea class="form-control" rows="5" placeholder="Paste URLs or file paths (one per line)"></textarea>
+                            </div>
+                            
+                            <div id="batchFileInput" class="d-none">
+                              <input type="file" class="form-control" multiple accept=".txt,.csv">
+                            </div>
+                            
+                            <div id="batchPlaylistInput" class="d-none">
+                              <input type="text" class="form-control" placeholder="YouTube playlist URL">
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="row g-3">
+                          <div class="col-md-6">
+                            <label class="form-label">Output Directory</label>
+                            <div class="input-group">
+                              <input type="text" class="form-control" value="./downloads" readonly>
+                              <button class="btn btn-outline-secondary" type="button">
+                                <i class="bi bi-folder"></i>
+                              </button>
+                            </div>
+                          </div>
+                          
+                          <div class="col-md-6">
+                            <label class="form-label">Naming Pattern</label>
+                            <select class="form-select">
+                              <option value="title">%(title)s</option>
+                              <option value="title_id">%(title)s_%(id)s</option>
+                              <option value="uploader_title">%(uploader)s_%(title)s</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="col-lg-4">
+                        <div class="batch-settings">
+                          <h6>Batch Settings</h6>
+                          
+                          <div class="mb-2">
+                            <label class="form-label small">Concurrent Jobs</label>
+                            <input type="range" class="form-range" min="1" max="8" value="4" id="batchConcurrency">
+                            <div class="d-flex justify-content-between">
+                              <small>1</small>
+                              <small id="concurrencyValue">4</small>
+                              <small>8</small>
+                            </div>
+                          </div>
+                          
+                          <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="batchRetry" checked>
+                            <label class="form-check-label" for="batchRetry">
+                              Auto-retry failures
+                            </label>
+                          </div>
+                          
+                          <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="batchNotify">
+                            <label class="form-check-label" for="batchNotify">
+                              Desktop notifications
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                      <button type="button" class="btn btn-info btn-lg" id="startBatchProcess">
+                        <i class="bi bi-play-fill me-1"></i>Start Batch Process
+                      </button>
+                      <button type="button" class="btn btn-outline-secondary ms-2">
+                        <i class="bi bi-pause me-1"></i>Pause
+                      </button>
+                      <button type="button" class="btn btn-outline-danger ms-2">
+                        <i class="bi bi-stop me-1"></i>Stop All
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Queue (Global) -->
+        <div class="task-queue-section mt-4">
+          <div class="card">
+            <div class="card-header">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5><i class="bi bi-list-task me-2"></i>Task Queue</h5>
+                <div class="queue-controls">
+                  <span class="badge bg-primary me-2" id="queueCount">0 tasks</span>
+                  <button class="btn btn-sm btn-outline-primary" id="refreshQueue">
+                    <i class="bi bi-arrow-clockwise"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-success" id="clearCompleted">
+                    <i class="bi bi-check-all"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <div class="task-list" id="globalTaskList">
+                <!-- Tasks populated by JavaScript -->
+              </div>
+              <div class="empty-queue text-center py-4 d-none" id="emptyQueue">
+                <i class="bi bi-inbox display-5 text-muted mb-2"></i>
+                <p class="text-muted">No active tasks</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal fade" id="settingsModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Settings</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Default Download Directory</label>
+            <input type="text" class="form-control" value="./downloads">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Max Concurrent Downloads</label>
+            <input type="number" class="form-control" value="4" min="1" max="8">
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="autoTranscription">
+            <label class="form-check-label" for="autoTranscription">
+              Enable auto-transcription by default
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Save Settings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='cursor-fluid.js') }}"></script>
+  <script src="{{ url_for('static', filename='script_enhanced.js') }}"></script>
+</body>
+</html>
