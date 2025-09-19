@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
             this.config = null;
             this.polling = false;
             this.pollTimer = null;
+            this.renderThrottle = null;
+            this.lastRender = 0;
+            this.apiThrottle = new Map(); // For throttling API calls
             
             this.init();
         }
@@ -31,8 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.startPolling();
             }
             
-            // Setup performance monitoring
-            setInterval(() => this.monitorPerformance(), 30000); // Every 30 seconds
+            // Setup performance monitoring with less frequent checks
+            setInterval(() => this.monitorPerformance(), 120000); // Every 2 minutes
+            
+            // Setup memory cleanup
+            setInterval(() => this.cleanupMemory(), 300000); // Every 5 minutes
             
             console.log('YouTube Tools Pro initialized with enhanced features');
             console.log('Current tool:', this.currentTool);
@@ -416,7 +422,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const emptyQueue = document.getElementById('emptyQueue');
             const queueCount = document.getElementById('queueCount');
             
-            const tasks = Array.from(this.tasks.values());
+            // Throttle rendering to prevent excessive DOM updates
+            const now = Date.now();
+            if (now - this.lastRender < 500) { // Max 2 updates per second
+                return;
+            }
+            this.lastRender = now;
+            
+            const tasks = Array.from(this.tasks.values())
+                .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0))
+                .slice(0, 50); // Limit to 50 tasks to reduce DOM size
             
             if (tasks.length === 0) {
                 if (taskList) taskList.innerHTML = '';
@@ -424,12 +439,33 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 if (emptyQueue) emptyQueue.classList.add('d-none');
                 if (taskList) {
-                    taskList.innerHTML = tasks.map(task => this.renderTaskItem(task)).join('');
+                    // Use DocumentFragment for better performance
+                    const fragment = document.createDocumentFragment();
+                    tasks.forEach(task => {
+                        const div = document.createElement('div');
+                        div.innerHTML = this.renderTaskItem(task);
+                        fragment.appendChild(div.firstChild);
+                    });
+                    
+                    // Clear and append all at once
+                    taskList.innerHTML = '';
+                    taskList.appendChild(fragment);
+                    
+                    // Show info if there are more tasks than displayed
+                    if (this.tasks.size > 50) {
+                        const infoDiv = document.createElement('div');
+                        infoDiv.className = 'alert alert-info alert-sm mt-2';
+                        infoDiv.innerHTML = `
+                            Showing 50 most recent tasks. ${this.tasks.size - 50} older tasks hidden for performance.
+                            <button class="btn btn-sm btn-outline-primary ms-2" onclick="window.app.clearCompleted()">Clear Completed</button>
+                        `;
+                        taskList.appendChild(infoDiv);
+                    }
                 }
             }
             
             if (queueCount) {
-                queueCount.textContent = `${tasks.length} task${tasks.length !== 1 ? 's' : ''}`;
+                queueCount.textContent = `${this.tasks.size} task${this.tasks.size !== 1 ? 's' : ''} (showing ${tasks.length})`;
             }
         }
         
@@ -539,7 +575,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (this.polling) return;
             
             this.polling = true;
-            this.pollTimer = setInterval(() => this.pollProgress(), 2000);
+            // Reduce polling frequency to reduce memory pressure
+            this.pollTimer = setInterval(() => this.pollProgress(), 5000); // Changed from 2s to 5s
         }
         
         stopPolling() {
@@ -560,16 +597,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 const updates = response.updates || [];
                 
                 let hasUpdates = false;
+                let updateCount = 0;
+                
                 updates.forEach(update => {
                     if (update.type === 'status_update' && update.task) {
                         this.tasks.set(update.task.id, update.task);
                         hasUpdates = true;
+                        updateCount++;
                     }
                 });
                 
+                // Only re-render if there are actual updates and not too frequently
                 if (hasUpdates) {
-                    this.renderTasks();
-                    this.updateStatistics();
+                    // Throttle DOM updates for better performance
+                    if (!this.renderThrottle) {
+                        this.renderThrottle = setTimeout(() => {
+                            this.renderTasks();
+                            this.updateStatistics();
+                            this.renderThrottle = null;
+                        }, 1000);
+                    }
                 }
                 
                 // Stop polling if no active tasks
@@ -577,8 +624,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.stopPolling();
                 }
                 
+                // Auto-cleanup if too many updates in memory
+                if (updateCount > 20) {
+                    this.cleanupMemory();
+                }
+                
             } catch (error) {
                 console.error('Polling error:', error);
+                // Reduce polling frequency on errors
+                this.stopPolling();
+                setTimeout(() => this.startPolling(), 10000);
             }
         }
         
@@ -772,6 +827,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         async apiCall(endpoint, method = 'GET', data = null) {
+            // Throttle API calls to prevent excessive requests
+            const throttleKey = `${method}:${endpoint}`;
+            const now = Date.now();
+            const lastCall = this.apiThrottle.get(throttleKey) || 0;
+            const minInterval = endpoint === '/progress' ? 5000 : 1000; // 5s for progress, 1s for others
+            
+            if (now - lastCall < minInterval) {
+                // Return cached promise if available
+                if (this.apiThrottle.has(`${throttleKey}:promise`)) {
+                    return this.apiThrottle.get(`${throttleKey}:promise`);
+                }
+                // Wait for minimum interval
+                await new Promise(resolve => setTimeout(resolve, minInterval - (now - lastCall)));
+            }
+            
+            this.apiThrottle.set(throttleKey, Date.now());
+            
             const options = {
                 method,
                 headers: {
@@ -783,14 +855,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 options.body = JSON.stringify(data);
             }
             
-            const response = await fetch(`/api${endpoint}`, options);
+            const promise = fetch(`/api${endpoint}`, options).then(response => {
+                if (!response.ok) {
+                    return response.json().catch(() => ({ error: 'Network error' })).then(error => {
+                        throw new Error(error.error || `HTTP ${response.status}`);
+                    });
+                }
+                return response.json();
+            }).finally(() => {
+                // Clean up promise cache
+                this.apiThrottle.delete(`${throttleKey}:promise`);
+            });
             
-            if (!response.ok) {
-                const error = await response.json().catch(() => ({ error: 'Network error' }));
-                throw new Error(error.error || `HTTP ${response.status}`);
-            }
+            // Cache the promise to prevent duplicate calls
+            this.apiThrottle.set(`${throttleKey}:promise`, promise);
             
-            return response.json();
+            return promise;
         }
         
         showAlert(message, type = 'info') {
@@ -940,11 +1020,19 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // ====== Performance Monitoring ======
         monitorPerformance() {
-            // Monitor memory usage
+            // Monitor memory usage with higher threshold
             if (performance.memory) {
                 const memInfo = performance.memory;
-                if (memInfo.usedJSHeapSize > 50 * 1024 * 1024) { // 50MB
-                    console.warn('High memory usage detected:', memInfo);
+                const threshold = 100 * 1024 * 1024; // Increase to 100MB
+                
+                if (memInfo.usedJSHeapSize > threshold) {
+                    console.warn('High memory usage detected:', {
+                        used: Math.round(memInfo.usedJSHeapSize / 1024 / 1024) + 'MB',
+                        total: Math.round(memInfo.totalJSHeapSize / 1024 / 1024) + 'MB',
+                        limit: Math.round(memInfo.jsHeapSizeLimit / 1024 / 1024) + 'MB'
+                    });
+                    // Trigger cleanup
+                    this.cleanupMemory();
                 }
             }
             
@@ -952,6 +1040,47 @@ document.addEventListener('DOMContentLoaded', () => {
             if (this.tasks.size > 100) {
                 console.warn('Large number of tasks in queue:', this.tasks.size);
                 this.showAlert('Consider clearing completed tasks for better performance', 'info');
+                // Auto-cleanup old completed tasks
+                this.autoCleanupTasks();
+            }
+        }
+        
+        // ====== Memory Management ======
+        cleanupMemory() {
+            // Clear old completed tasks (keep only last 50)
+            const completedTasks = Array.from(this.tasks.values())
+                .filter(task => task.status.toLowerCase() === 'completed')
+                .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+                
+            if (completedTasks.length > 50) {
+                const tasksToRemove = completedTasks.slice(50);
+                tasksToRemove.forEach(task => this.tasks.delete(task.id));
+                console.log(`Cleaned up ${tasksToRemove.length} old completed tasks`);
+            }
+            
+            // Force garbage collection if available (Chrome DevTools)
+            if (window.gc) {
+                window.gc();
+            }
+        }
+        
+        autoCleanupTasks() {
+            const now = new Date();
+            const oneHourAgo = new Date(now.getTime() - 60 * 60 * 1000);
+            
+            let cleanedCount = 0;
+            for (const [taskId, task] of this.tasks.entries()) {
+                const taskDate = new Date(task.created_at || now);
+                if (task.status.toLowerCase() === 'completed' && taskDate < oneHourAgo) {
+                    this.tasks.delete(taskId);
+                    cleanedCount++;
+                }
+            }
+            
+            if (cleanedCount > 0) {
+                console.log(`Auto-cleaned ${cleanedCount} old tasks`);
+                this.renderTasks();
+                this.updateStatistics();
             }
         }
     }
