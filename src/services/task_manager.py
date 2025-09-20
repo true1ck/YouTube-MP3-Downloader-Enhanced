@@ -8,6 +8,7 @@ from ..config import Config
 from ..models.download_task import DownloadTask, DownloadStatus, DownloadFormat
 from ..services.download_service import DownloadService
 from ..services.transcription_service import TranscriptionService
+from ..services.task_persistence import TaskPersistence
 from ..utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -23,6 +24,15 @@ class TaskManager:
         self.executor = ThreadPoolExecutor(max_workers=Config.MAX_CONCURRENT_DOWNLOADS)
         self.progress_callbacks: List[Callable] = []
         self._lock = threading.Lock()
+        self.persistence = TaskPersistence()
+        
+        # Load existing tasks from storage
+        try:
+            saved_tasks = self.persistence.load_tasks()
+            self.tasks.update(saved_tasks)
+            logger.info(f"TaskManager initialized with {len(self.tasks)} existing tasks")
+        except Exception as e:
+            logger.error(f"Failed to load existing tasks: {e}")
     
     def add_progress_callback(self, callback: Callable):
         """Add a callback function for progress updates."""
@@ -42,6 +52,16 @@ class TaskManager:
                 callback(task)
             except Exception as e:
                 logger.error(f"Progress callback error: {e}")
+        
+        # Save tasks after updates
+        self._save_tasks()
+    
+    def _save_tasks(self):
+        """Save tasks to persistent storage."""
+        try:
+            self.persistence.save_tasks(self.tasks)
+        except Exception as e:
+            logger.error(f"Failed to save tasks: {e}")
     
     def create_task(self, url: str, format_type: DownloadFormat, quality: str = "medium", 
                    enable_transcription: bool = False) -> DownloadTask:
@@ -54,6 +74,7 @@ class TaskManager:
         
         logger.info(f"Created task {task.id} for {url} ({format_type.value}, {quality})")
         self._notify_progress(task)
+        self._save_tasks()
         
         return task
     
@@ -161,6 +182,7 @@ class TaskManager:
             if task_id in self.tasks:
                 del self.tasks[task_id]
                 logger.info(f"Task {task_id} removed")
+                self._save_tasks()
     
     def clear_completed_tasks(self):
         """Remove all completed tasks."""
@@ -174,6 +196,9 @@ class TaskManager:
                 del self.tasks[task_id]
                 
             logger.info(f"Cleared {len(completed_tasks)} completed tasks")
+            
+            if completed_tasks:
+                self._save_tasks()
     
     def get_status_updates(self) -> List[dict]:
         """Get all pending status updates."""

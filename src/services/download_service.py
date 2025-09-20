@@ -141,7 +141,18 @@ class DownloadService:
                 # Extract info first to get metadata
                 info = ydl.extract_info(task.url, download=False)
                 title = info.get("title", "Unknown")
-                task.set_metadata(title=title)
+                duration = info.get("duration", 0)
+                thumbnail = info.get("thumbnail", "")
+                uploader = info.get("uploader", "")
+                view_count = info.get("view_count", 0)
+                
+                task.set_metadata(
+                    title=title,
+                    duration=duration,
+                    thumbnail=thumbnail,
+                    uploader=uploader,
+                    view_count=view_count
+                )
                 
                 if progress_callback:
                     progress_callback(task)
@@ -161,7 +172,9 @@ class DownloadService:
                         task.set_status(DownloadStatus.COMPLETED)
                         task.update_progress(100.0)
                         
-                        logger.info(f"Download completed for task {task.id}: {final_basename}")
+                        # Sanitize filename for logging to avoid Unicode errors
+                        safe_filename = final_basename.encode('ascii', 'ignore').decode('ascii')
+                        logger.info(f"Download completed for task {task.id}: {safe_filename}")
                         
                         if progress_callback:
                             progress_callback(task)

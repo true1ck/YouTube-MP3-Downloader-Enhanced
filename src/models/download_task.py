@@ -58,6 +58,11 @@ class DownloadTask:
         if filename:
             self.filename = filename
         self.metadata.update(kwargs)
+        
+        # Store additional metadata fields for easy access
+        for key, value in kwargs.items():
+            if hasattr(self, key):
+                setattr(self, key, value)
     
     def to_dict(self) -> Dict[str, Any]:
         """Convert task to dictionary."""
@@ -78,3 +83,41 @@ class DownloadTask:
             "completed_at": self.completed_at.isoformat() if self.completed_at else None,
             "metadata": self.metadata
         }
+    
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> 'DownloadTask':
+        """Create task from dictionary."""
+        # Create a basic task first
+        task = cls(
+            url=data["url"],
+            format_type=DownloadFormat(data["format"]),
+            quality=data.get("quality", "medium")
+        )
+        
+        # Override with saved data
+        task.id = data["id"]
+        task.status = DownloadStatus(data["status"])
+        task.progress = data.get("progress", 0.0)
+        task.speed = data.get("speed", "")
+        task.eta = data.get("eta", "")
+        task.title = data.get("title", "")
+        task.filename = data.get("filename", "")
+        task.error_message = data.get("error_message", "")
+        task.transcription = data.get("transcription", "")
+        
+        # Handle datetime fields
+        if "created_at" in data:
+            if isinstance(data["created_at"], str):
+                task.created_at = datetime.fromisoformat(data["created_at"])
+            elif isinstance(data["created_at"], datetime):
+                task.created_at = data["created_at"]
+        
+        if data.get("completed_at"):
+            if isinstance(data["completed_at"], str):
+                task.completed_at = datetime.fromisoformat(data["completed_at"])
+            elif isinstance(data["completed_at"], datetime):
+                task.completed_at = data["completed_at"]
+        
+        task.metadata = data.get("metadata", {})
+        
+        return task
